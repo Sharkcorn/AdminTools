@@ -65,9 +65,9 @@ namespace AdminTools.Commands
             response = $"Jail command has run successfully.\n{Extensions.LogPlayers(players)}";
             return true;
         }
-        public static void DoJail(Player player, bool skipadd = false)
+        public static void DoJail(Player player, bool skipadd = false, bool reconnected = false)
         {
-            if (Main.JailedPlayers.ContainsKey(player.UserId))
+            if (Main.JailedPlayers.ContainsKey(player.UserId) && !reconnected)
                 return;
             if (!skipadd)
             {
